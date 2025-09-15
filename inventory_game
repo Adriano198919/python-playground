@@ -1,0 +1,42 @@
+def show_menu():
+    print("\n=== Inventory Game Menu ===")
+    print("1. Pick up an item")
+    print("2. Drop an item")
+    print("3. Show inventory")
+    print("4. Exit")
+
+inventory = []
+
+while True:
+    show_menu()
+    choice = input("Choose an option (1-4): ")
+
+    if choice == "1":
+        item = input("Enter the item to pick up: ")
+        inventory.append(item)
+        print(f"✅ You picked up: {item}")
+
+    elif choice == "2":
+        if not inventory:
+            print("⚠️ Your inventory is empty!")
+        else:
+            print("Your inventory:", inventory)
+            item = input("Enter the item to drop: ")
+            if item in inventory:
+                inventory.remove(item)
+                print(f"🗑️ You dropped: {item}")
+            else:
+                print(f"❌ You don't have {item}.")
+
+    elif choice == "3":
+        if not inventory:
+            print("🎒 Your inventory is empty.")
+        else:
+            print("🎒 Current inventory:", inventory)
+
+    elif choice == "4":
+        print("👋 Thanks for playing! Goodbye.")
+        break
+
+    else:
+        print("❌ Invalid choice, please try again.")
